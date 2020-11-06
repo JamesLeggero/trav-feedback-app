@@ -1,6 +1,17 @@
 from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+
+ENV = 'dev'
+
+if ENV == 'dev':
+    app.debug = True
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql'
+
+else:
+    app.debug = False
+    
 
 @app.route('/')
 def index():
@@ -19,5 +30,4 @@ def submit():
         return render_template('success.html') 
 
 if __name__ == '__main__':
-    app.debug = True
     app.run()
