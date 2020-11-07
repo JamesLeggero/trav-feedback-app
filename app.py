@@ -32,7 +32,7 @@ class Feedback(db.Model):
         self.customer = customer
         self.dealer = dealer
         self.rating = rating
-        self.comments = comments
+        self.comments = comments 
 
 @app.route('/')
 def index():
